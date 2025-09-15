@@ -252,3 +252,20 @@
 
 (define-read-only (get-lease-tenant (lease-id uint))
   (map-get? lease-tenants lease-id))
+  (define-read-only (get-lease-rent (lease-id uint))
+  (map-get? lease-rents lease-id))
+
+(define-read-only (get-lease-status (lease-id uint))
+  (map-get? lease-statuses lease-id))
+
+(define-read-only (get-escrow-balance (lease-id uint))
+  (map-get? escrow-balances lease-id))
+
+(define-read-only (get-rent-payment (payment-id uint))
+  (map-get? rent-payments payment-id))
+
+(define-read-only (get-property-count)
+  (var-get property-counter))
+
+(define-read-only (get-lease-count)
+  (var-get lease-counter))
