@@ -228,3 +228,44 @@
               (status "withdrawn")
             ))))
         (err "Unauthorized or lease not ended"))))
+        ;; read-only functions
+(define-read-only (get-property-owner (property-id uint))
+  (map-get? property-owners property-id))
+
+(define-read-only (get-property-address (property-id uint))
+  (map-get? property-addresses property-id))
+
+(define-read-only (get-property-rent (property-id uint))
+  (map-get? property-rents property-id))
+
+(define-read-only (get-property-deposit (property-id uint))
+  (map-get? property-deposits property-id))
+
+(define-read-only (get-property-available (property-id uint))
+  (map-get? property-availability property-id))
+
+(define-read-only (get-property-description (property-id uint))
+  (map-get? property-descriptions property-id))
+
+(define-read-only (get-lease-property (lease-id uint))
+  (map-get? lease-properties lease-id))
+
+(define-read-only (get-lease-tenant (lease-id uint))
+  (map-get? lease-tenants lease-id))
+  (define-read-only (get-lease-rent (lease-id uint))
+  (map-get? lease-rents lease-id))
+
+(define-read-only (get-lease-status (lease-id uint))
+  (map-get? lease-statuses lease-id))
+
+(define-read-only (get-escrow-balance (lease-id uint))
+  (map-get? escrow-balances lease-id))
+
+(define-read-only (get-rent-payment (payment-id uint))
+  (map-get? rent-payments payment-id))
+
+(define-read-only (get-property-count)
+  (var-get property-counter))
+
+(define-read-only (get-lease-count)
+  (var-get lease-counter))
